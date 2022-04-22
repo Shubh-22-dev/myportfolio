@@ -1,0 +1,22 @@
+#typing-container {
+    margin: 50px 0 0 0;
+    text-align: center;
+}
+
+#typing-text {
+    display: inline-block;
+    color: #2980b9;
+    border-right: 3px solid #2980b9;
+}
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    color: black;
+  }
+  .skill-icons{
+      font-size: 30px;
+  }
