@@ -17,7 +17,6 @@ app.use(express.urlencoded({
 
 app.get('/', (req, res) => {
     res.render('index')
-    // res.send("HELLO WORLD!!")
 })
 // app.get('/sendEmail', async (req, res) => {
 
@@ -42,6 +41,8 @@ app.get('/', (req, res) => {
 
 // })
 
-app.listen('3000', () => {
-    console.log("Server running on 3000")
+const port = process.env.PORT || 3000
+
+app.listen(port, () => {
+    console.log(`Server running on ${port}`)
 })
