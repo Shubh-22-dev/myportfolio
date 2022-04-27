@@ -20,3 +20,6 @@
   .skill-icons{
       font-size: 30px;
   }
+  .show-read-more .more-text{
+    display: none;
+}

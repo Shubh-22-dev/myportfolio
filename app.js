@@ -3,11 +3,11 @@ if (process.env.NODE_ENV !== "production") {
 }
 const express = require('express')
 const path = require('path')
-// const ejsMate = require('ejs-mate')
 const nodemailer = require("nodemailer");
+const session = require('express-session')
+const flash = require('connect-flash')
 const app = express()
 
-// app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 app.use(express.static(path.join(__dirname, 'public')))
@@ -15,36 +15,65 @@ app.use(express.urlencoded({
     extended: true
 }))
 
+const secret = process.env.SECRET || 'thisshouldbeabettersecret'
+
+const sessionConfig = {
+    name: 'session',
+    secret,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        httpOnly: true,
+        // secure:true,
+        expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+        maxAge: 1000 * 60 * 60 * 24 * 7
+    }
+}
+app.use(session(sessionConfig))
+app.use(flash())
+
+app.use((req, res, next) => {
+    res.locals.success = req.flash('success')
+    res.locals.error = req.flash('error')
+    next()
+})
+
 app.get('/', (req, res) => {
     res.render('index')
 })
-app.get('/sendEmail', async (req, res) => {
+
+app.post('/sendEmail', async (req, res) => {
+    const {
+        name,
+        email,
+        subject,
+        message
+    } = req.body.contact
     try {
         let transporter = nodemailer.createTransport({
-            host: "smtpout.secureserver.net", 
+            host: "smtpout.secureserver.net",
             port: 465,
-            secure: true, // true for 465, false for other ports
+            secure: true,
             auth: {
-                user: "shubhkarmansingh@shubhisawesome.com", // generated ethereal user
-                pass: "3htD+NiT5O", // generated ethereal password
+                user: process.env.NODEMAILER_USER,
+                pass: process.env.NODEMAILER_PASS,
             },
         });
 
         // send mail with defined transport object
         let info = await transporter.sendMail({
-            from: "shubhkarmansingh@shubhisawesome.com", // sender address
-            to: "shubhkarmansingh45@gmail.com", // list of receivers
-            subject: "Testing mail from Godaddy", // Subject line
-            text: "This is my first mail from Godaddy", // plain text body
-            html: "<b>This is my first mail from Godaddy</b>", // html body
+            from: process.env.NODEMAILER_USER, // sender address
+            to: process.env.NODEMAILER_MAIL_TO, // list of receivers
+            subject: subject, // Subject line
+            html: `<h2>${name}</h2>
+            <h3>${email}</h3>
+            <p>${message}</p>`,
         });
-        console.log("Email Sent!!!")
+        req.flash('success', "Thanks for contacting me. I'll get back to you soon.")
+        res.redirect('/')
     } catch (e) {
         console.log(e)
     }
-
-
-
 })
 
 const port = process.env.PORT || 3000
