@@ -23,3 +23,7 @@
   .show-read-more .more-text{
     display: none;
 }
+
+.skillsicons i{
+    font-size: 40px;
+}
