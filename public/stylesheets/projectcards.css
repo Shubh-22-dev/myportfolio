@@ -1,0 +1,144 @@
+ 
+  .all-cards {
+    margin: auto;
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+  }
+  
+  .card-container {
+    /* background: rgba(0,0,0,0.4); */
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0 12px;
+    perspective: 900px;
+    text-align: center;
+    
+  }
+  
+  .card {
+    position: relative;
+    width: 350px;
+    height: 200px;
+    transition: all 0.6s ease;
+    transform-style: preserve-3d;
+  }
+  
+  .front, .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+    backface-visibility: hidden;
+  }
+  
+  .front {
+    background: #141413;
+    font-size: 12px;
+    width: 100%;
+    height: 100%;
+  }
+  .front .card-img {
+    background: black;
+    width: 100%;
+    height: 75%;
+  }
+  .front .card-body {
+    width: 100%;
+    height: 25%;
+  }
+  .front .card-body h3 {
+    font-size: 15px;
+  }
+  .front .card-footer {
+    font-size: 16px;
+  }
+  
+  .back {
+    background: black;
+    font-size: 14px;
+  }
+  .back p {
+    padding: 1em;
+    font-weight: 100;
+  }
+  .back p span {
+    font-weight: bold;
+  }
+  .back ul li {
+    text-align: left;
+  }
+  .back button {
+    background: none;
+    border-radius: 4px;
+    border: solid 1px white;
+    color: white;
+    padding: 0.5em 1em;
+  }
+  .back button:hover {
+    background: white;
+    color: green;
+  }
+
+  .back .card-icon{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background: black;
+    overflow: hidden;
+    border-radius: 50px;
+  }
+  .back .card-icon :hover{
+     background: #607D8B; 
+    transform: scale(1.2);
+    transition: all .4s ease;
+  }
+  .back .card-icon :not(:hover){
+     background: black; 
+    transform: scale(1);
+    transition: all .4s ease;
+  }
+
+  .back .card-icon .icon {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 50px;
+    display: inline-block;
+  }
+  .back .card-icon .icon i{
+    font-size: 30px;
+    line-height: 40px;
+  }
+  
+  .card-container:hover .card {
+    transform: rotateY(180deg);
+  }
+  .card-container:nth-last-child(-n+1):hover .card {
+    transform: rotateY(45deg);
+  }
+  .back {
+    transform: rotateY(180deg);
+  }
+
+  .glow {
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+
+  @-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+    
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+  }
+
