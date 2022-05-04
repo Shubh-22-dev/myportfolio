@@ -18,8 +18,10 @@
     position: relative;
     width: 350px;
     height: 200px;
-    transition: all 0.6s ease;
-    transform-style: preserve-3d;
+    /* transition: all 0.6s ease; */
+    -webkit-transition: all 0.6s ease;
+    /* transform-style: preserve-3d; */
+    -webkit-transform-style: preserve-3d;
   }
   
   .front, .back {
@@ -92,13 +94,17 @@
   }
   .back .card-icon :hover{
      background: #607D8B; 
-    transform: scale(1.2);
-    transition: all .4s ease;
+    /* transform: scale(1.2); */
+    -webkit-transform: scale(1.2);
+    /* transition: all .4s ease; */
+    -webkit-transition: all .4s ease;
   }
   .back .card-icon :not(:hover){
      background: black; 
-    transform: scale(1);
-    transition: all .4s ease;
+    /* transform: scale(1); */
+    -webkit-transform: scale(1);
+    /* transition: all .4s ease; */
+    -webkit-transition: all .4s ease;
   }
 
   .back .card-icon .icon {
@@ -114,20 +120,24 @@
   }
   
   .card-container:hover .card {
-    transform: rotateY(180deg);
+    /* transform: rotateY(180deg); */
+    -webkit-transform: rotateY(180deg);
   }
   .card-container:nth-last-child(-n+1):hover .card {
-    transform: rotateY(45deg);
+    /* transform: rotateY(45deg); */
+    -webkit-transform: rotateY(45deg);
   }
   .back {
-    transform: rotateY(180deg);
+    /* transform: rotateY(180deg); */
+    -webkit-transform: rotateY(180deg);
   }
 
   .glow {
     font-size: 30px;
     color: #fff;
     text-align: center;
-    animation: glow 1s ease-in-out infinite alternate;
+    /* animation: glow 1s ease-in-out infinite alternate; */
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
   }
 
   @-webkit-keyframes glow {
