@@ -13,16 +13,18 @@
     <link rel="stylesheet" href="/stylesheets/app.css">
     <link rel="stylesheet" href="/stylesheets/projectcards.css">
     <link rel="stylesheet" href="/stylesheets/socialicons.css">
+    <link rel="stylesheet" href="/stylesheets/contact.css">
+    <link rel="stylesheet" href="/stylesheets/waves.css">
 </head>
 
 <body class="">
-    <div class="container">
-        <header class="container pb-5 mb-auto">
-            <%- include('partials/navbar') %>
-        </header>
-        <main>
-            <%- include('partials/socialicons') %>
-            <%- include('partials/topcontent') %>
+    <!-- <div class="container"> -->
+    <header class="container pb-5 mb-auto">
+        <%- include('partials/navbar') %>
+    </header>
+    <main>
+        <%- include('partials/waves') %>
+        <div class="container">
             <div data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="0" class="scrollspy-example text-dark"
                 tabindex="0">
                 <%- include('partials/about') %>
@@ -30,8 +32,10 @@
                 <hr>
                 <%- include('partials/contact') %>
             </div>
-        </main>
+        </div>
+    </main>
     </div>
+    <!-- </div> -->
     <footer class="footer bg-dark py-2 w-auto">
         <div class="container">
             <span class="text-muted">&copy Designed by Shubh 2022</span>
@@ -46,7 +50,6 @@
     <script src="/javascripts/typing.js"></script>
     <script src="/javascripts/validateForms.js"></script>
 
-    <script src="/javascripts/readmore.js"></script>
     <script src="/javascripts/socialicons.js"></script>
 </body>
 
