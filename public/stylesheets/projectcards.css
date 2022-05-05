@@ -23,6 +23,7 @@
     -webkit-transition: all 0.6s ease;
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
+    background-color: transparent;
   }
   
   .front, .back {
@@ -99,14 +100,14 @@
     transform: scale(1.2);
     -webkit-transform: scale(1.2);
     transition: all .4s ease;
-    -webkit-transition: scale .4s ease;
+    -webkit-transition: all .4s ease;
   }
   .back .card-icon :not(:hover){
      background: black; 
     transform: scale(1);
     -webkit-transform: scale(1);
     transition: all .4s ease;
-    -webkit-transition: scale .4s ease;
+    -webkit-transition: all .4s ease;
   }
 
   .back .card-icon .icon {
